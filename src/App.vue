@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container mx-auto m-10">
     <LoaderComponent />
-    <RotaDataPresentationComponent />
+    <RotaDataPresentationComponent :rotas="rotas"/>
 
     <p>users</p>
     <p class="mr-2">{{users}}</p>
@@ -17,11 +17,14 @@ import LoaderComponent from './components/loader/loader-component.vue';
 import RotaDataPresentationComponent from "./components/rota-data-presentation/rota-data-presentation-component.vue";
 
 const usersStore = Store.useUserStore();
+const rotasStore = Store.useRotasStore();
 
 const { users } = storeToRefs(usersStore);
+const { rotas } = storeToRefs(rotasStore);
 
 onBeforeMount(async () => {
-  await usersStore.getAllUsers();
+  //await usersStore.getAllUsers();
+  await rotasStore.getAllRotas();
 });
 
 </script>

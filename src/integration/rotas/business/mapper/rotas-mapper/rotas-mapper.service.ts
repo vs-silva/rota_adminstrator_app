@@ -16,7 +16,7 @@ async function mapToRotaDTOCollection(data: object[]): Promise<RotaDTO[]> {
         // @ts-ignore
         endDate: rota[`${RotasResponseRequestedFieldsConstants.END_DATE}`],
         // @ts-ignore
-        userID: parseInt(rota[`${RotasResponseRequestedFieldsConstants.USER_ID}`])
+        userID: parseInt(rota[`${RotasResponseRequestedFieldsConstants.USER_ID}`]),
     }));
 }
 

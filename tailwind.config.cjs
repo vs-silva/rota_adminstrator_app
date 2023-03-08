@@ -2,8 +2,7 @@
 module.exports = {
   content: [
     './public/**/*.html',
-    './src/**/*.{js,jsx,ts,tsx,vue}',
-    './node_modules/tw-elements/dist/js/**/*.js'
+    './src/**/*.{js,jsx,ts,tsx,vue}'
   ],
   theme: {
     extend: {},
@@ -11,5 +10,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("tw-elements/dist/plugin")],
+  plugins: [],
 }
