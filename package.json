@@ -18,7 +18,6 @@
     "i18next": "^22.4.11",
     "mitt": "^3.0.0",
     "pinia": "^2.0.33",
-    "tw-elements": "^1.0.0-beta1",
     "vue": "^3.2.45"
   },
   "devDependencies": {

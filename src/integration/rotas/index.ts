@@ -1,5 +1,4 @@
 import {RotasService} from "./rotas.service";
-//import {RotasApiClientAdapter} from "./adapters/rotas-api-client.adapter";
-import {RotasApiMockAdapter} from "./adapters/rotas-api-mock.adapter";
+import {RotasApiClientAdapter} from "./adapters/rotas-api-client.adapter";
 
-export default RotasService(RotasApiMockAdapter());
+export default RotasService(RotasApiClientAdapter());

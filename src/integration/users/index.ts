@@ -1,5 +1,4 @@
 import {UsersService} from "./users.service";
-//import {UsersApiClientAdapter} from "./adapters/users-api-client.adapter";
-import {UsersApiMockAdapter} from "./adapters/users-api-mock.adapter";
+import {UsersApiClientAdapter} from "./adapters/users-api-client.adapter";
 
-export default UsersService(UsersApiMockAdapter());
+export default UsersService(UsersApiClientAdapter());
