@@ -70,7 +70,7 @@ describe('Rotas service tests', () => {
 
         it('getRotaByID should return a RotaDTO', async () => {
 
-            const rotaIdNumber: number = parseInt(faker.random.numeric(2));
+            const rotaIdNumber: number = parseInt(faker.random.numeric(1));
 
             const spy = vi.spyOn(Rotas, 'getRotaByID');
             const result = await Rotas.getRotaByID(rotaIdNumber);
