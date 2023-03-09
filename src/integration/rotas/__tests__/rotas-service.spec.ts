@@ -104,7 +104,7 @@ describe('Rotas service tests', () => {
 
         }, timeout );
 
-        it('getRotaByID should return a RotaDTO', async () => {
+        it('getRotaByID should return an empty RotaDTO', async () => {
 
             const rotaIdNumber: number = parseInt(faker.random.numeric(3));
 
@@ -122,6 +122,8 @@ describe('Rotas service tests', () => {
             expect(spy).toHaveBeenCalledOnce();
             expect(spy).toHaveBeenCalledWith(rotaIdNumber);
             expect(result).not.toBeNull();
+
+            console.log(result);
 
             for (const rotaKey of Object.keys(result)) {
 

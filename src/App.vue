@@ -1,31 +1,35 @@
 <template>
   <div class="container mx-auto m-10">
     <LoaderComponent />
-    <RotaDataPresentationComponent :rotas="rotas"/>
+    <RotasAccordionComponent />
 
-    <p>users</p>
-    <p class="mr-2">{{users}}</p>
+    {{rotas}}
+    <br>
+    {{rotas[0]}}
+
   </div>
 </template>
 
 <script setup lang="ts">
 import Store from "./store";
 import { storeToRefs } from 'pinia';
-import {onBeforeMount} from "vue";
+import {onBeforeMount, ref} from "vue";
+import LoaderComponent from "./components/loader/loader-component.vue";
+import RotasAccordionComponent from "./components/accordion/rotas-accordion-component.vue";
 
-import LoaderComponent from './components/loader/loader-component.vue';
-import RotaDataPresentationComponent from "./components/rota-data-presentation/rota-data-presentation-component.vue";
+const rotaStore = Store.useRotaStore();
+const userStore = Store.useUserStore();
 
-const usersStore = Store.useUserStore();
-const rotasStore = Store.useRotasStore();
-
-const { users } = storeToRefs(usersStore);
-const { rotas } = storeToRefs(rotasStore);
+const {rotas, rota} = storeToRefs(rotaStore);
+const {users, user} = storeToRefs(userStore);
 
 onBeforeMount(async () => {
-  //await usersStore.getAllUsers();
-  await rotasStore.getAllRotas();
+  const awaitRotas = rotaStore.getAllRotas();
+  const awaitUsers = userStore.getAllUsers();
+  await Promise.all([awaitRotas, awaitUsers]);
+  await rotaStore.mapUsersToRotas(users);
 });
+
 
 </script>
 

@@ -10,8 +10,7 @@ async function  mapToUserDTOCollection(data: object[]): Promise<UserDTO[]> {
         // @ts-ignore
         name: `${user[UsersResponseRequestedFieldsConstants.FIRST_NAME]} ${user[UsersResponseRequestedFieldsConstants.LAST_NAME]}`,
         // @ts-ignore
-        email: user[`${UsersResponseRequestedFieldsConstants.EMAIL}`],
-        rotas: []
+        email: user[`${UsersResponseRequestedFieldsConstants.EMAIL}`]
     }));
 }
 
