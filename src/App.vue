@@ -1,11 +1,7 @@
 <template>
   <div class="container mx-auto m-10">
     <LoaderComponent />
-    <RotasAccordionComponent />
-
-    {{rotas}}
-    <br>
-    {{rotas[0]}}
+    <TableComponent :rotas="rotas"/>
 
   </div>
 </template>
@@ -15,7 +11,9 @@ import Store from "./store";
 import { storeToRefs } from 'pinia';
 import {onBeforeMount, ref} from "vue";
 import LoaderComponent from "./components/loader/loader-component.vue";
-import RotasAccordionComponent from "./components/accordion/rotas-accordion-component.vue";
+import TableComponent from "./components/table/table-component.vue";
+import Eventbus from "./eventbus";
+import {EventTypeConstants} from "./eventbus/event-type.constants";
 
 const rotaStore = Store.useRotaStore();
 const userStore = Store.useUserStore();
@@ -30,6 +28,11 @@ onBeforeMount(async () => {
   await rotaStore.mapUsersToRotas(users);
 });
 
+//@ts-ignore
+Eventbus.on(EventTypeConstants.VIEW_USER_ROTAS_DETAILS, async (rotaID: number) => {
+  await rotaStore.getRotaById(rotaID);
+  console.log(rota.value);
+});
 
 </script>
 
