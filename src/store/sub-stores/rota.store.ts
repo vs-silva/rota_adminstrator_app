@@ -16,6 +16,10 @@ export function RotaStore() {
         rota.value = await Rotas.getRotaByID(rotaID);
     }
 
+    async function setSpecificRota(rotaPayload: RotaDTO): Promise<void> {
+        rota.value = rotaPayload;
+    }
+
     async function mapUsersToRotas(usersPayload: Ref<UserDTO[]>): Promise<void> {
 
         const users = usersPayload.value;
@@ -28,6 +32,7 @@ export function RotaStore() {
     return {
         getAllRotas,
         getRotaById,
+        setSpecificRota,
         mapUsersToRotas,
         rotas,
         rota
