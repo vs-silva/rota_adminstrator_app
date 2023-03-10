@@ -2,7 +2,7 @@
   <div class="container mx-auto m-10">
     <LoaderComponent />
     <RotasFilterInputComponent />
-    <RotasTableComponent :rotas="rotas"/>
+    <RotasTableComponent :rotas="filteredRotas"/>
     <RotaModalComponent :rota="rota"/>
   </div>
 </template>
@@ -24,7 +24,7 @@ import type {RotasOptionalFilterDTO} from "./integration/rotas/business/dtos/rot
 const rotaStore = Store.useRotaStore();
 const userStore = Store.useUserStore();
 
-const {rotas, rota} = storeToRefs(rotaStore);
+const {rotas, filteredRotas, rota} = storeToRefs(rotaStore);
 const {users, user} = storeToRefs(userStore);
 
 onBeforeMount(async () => {
@@ -40,8 +40,8 @@ Eventbus.on(EventTypeConstants.VIEW_USER_ROTAS_DETAILS, async (rotaDTO: RotaDTO)
 });
 
 //@ts-ignore
-Eventbus.on(EventTypeConstants.FILTER_ROTAS, (rotasFilterDTO: RotasOptionalFilterDTO) => {
-  console.log(rotasFilterDTO);
+Eventbus.on(EventTypeConstants.FILTER_ROTAS, async (rotasFilterDTO: RotasOptionalFilterDTO) => {
+  await rotaStore.updateFilterRotas(rotasFilterDTO);
 });
 
 </script>

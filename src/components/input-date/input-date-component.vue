@@ -15,6 +15,8 @@
 
 <script setup lang="ts">
 import {ref} from "vue";
+import Eventbus from "../../eventbus";
+import {EventTypeConstants} from "../../eventbus/event-type.constants";
 const inputValue = ref('');
 
 defineProps({
@@ -35,6 +37,10 @@ defineProps({
       console.log('using default handler. got changed');
     }
   }
+});
+
+Eventbus.on(EventTypeConstants.RESET_DATE_INPUTS, () => {
+  inputValue.value = '';
 });
 
 </script>
