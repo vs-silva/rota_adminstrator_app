@@ -13,7 +13,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="rota in rotas" :key="rota.id" :id="rota.id" class="border-b-2">
+      <tr v-for="rota in rotas" :key="rota.id" :id="rota.id.toString()" class="border-b-2">
         <td class="px-6 py-4 font-medium text-gray-900"><span>{{rota.type}}</span></td>
         <td class="px-6 py-4 font-medium text-gray-900"><span>{{rota.date}}</span></td>
         <td class="px-6 py-4 font-medium text-gray-900"><span>{{rota.startDate}}</span></td>

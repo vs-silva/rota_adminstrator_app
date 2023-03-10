@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
+import {PropType, ref} from "vue";
 import Eventbus from "../../eventbus";
 import {EventTypeConstants} from "../../eventbus/event-type.constants";
 const inputValue = ref('');
@@ -31,7 +31,7 @@ defineProps({
     default: () => ''
   },
   changeHandler: {
-    type: Function,
+    type: Function as PropType<(payload: Event) => void>,
     required: false,
     default: () => {
       console.log('using default handler. got changed');

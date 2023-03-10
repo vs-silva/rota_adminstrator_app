@@ -27,7 +27,7 @@ import {ref} from "vue";
 const selectedStartDate = ref('');
 const selectedEndDate = ref('');
 
-function handlerStartInputDateChange(event: InputEvent) {
+function handlerStartInputDateChange(event: Event) {
   event.preventDefault();
 
   //@ts-ignore
@@ -41,7 +41,7 @@ function handlerStartInputDateChange(event: InputEvent) {
   }
 }
 
-function handlerEndInputDateChange(event: InputEvent) {
+function handlerEndInputDateChange(event: Event) {
   event.preventDefault();
 
   //@ts-ignore
