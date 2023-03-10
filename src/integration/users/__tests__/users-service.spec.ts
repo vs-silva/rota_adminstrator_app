@@ -24,8 +24,7 @@ describe('Users service tests', () => {
                 expect.objectContaining(<UserDTO>{
                     id: expect.any(Number),
                     name: expect.any(String),
-                    email: expect.any(String),
-                    rotas: expect.any(Array)
+                    email: expect.any(String)
                 })
             ]));
 

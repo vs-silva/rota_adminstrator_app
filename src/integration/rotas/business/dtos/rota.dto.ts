@@ -1,3 +1,5 @@
+import type {UserDTO} from "../../../users/business/dtos/user.dto";
+
 export interface RotaDTO {
     id: number;
     type: string;
@@ -5,4 +7,5 @@ export interface RotaDTO {
     startDate: string;
     endDate: string;
     userID: number;
+    user?: UserDTO;
 }
