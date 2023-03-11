@@ -19,8 +19,14 @@ export function RotaStore() {
         rota.value = await Rotas.getRotaByID(rotaID);
     }
 
-    async function setSpecificRota(rotaPayload: RotaDTO): Promise<void> {
-        rota.value = rotaPayload;
+    async function setRotaUser(userPayload: Ref<UserDTO>): Promise<void> {
+        if(!userPayload.value.id) {
+            //@ts-ignore
+            rota.value.user = null;
+            return;
+        }
+
+        rota.value.user = userPayload.value;
     }
 
     async function updateFilterRotas(filteredRotasDTO: RotasOptionalFilterDTO): Promise<void> {
@@ -59,7 +65,7 @@ export function RotaStore() {
     return {
         getAllRotas,
         getRotaById,
-        setSpecificRota,
+        setRotaUser,
         mapUsersToRotas,
         updateFilterRotas,
         rotas,

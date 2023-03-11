@@ -1,9 +1,20 @@
 <template>
   <div class="container mx-auto m-10">
     <LoaderComponent />
-    <RotasFilterInputComponent />
-    <RotasTableComponent :rotas="filteredRotas"/>
-    <RotaModalComponent :rota="rota"/>
+
+    <div class="flex">
+
+      <div class="mr-6">
+        <UsersListComponent :users="users"/>
+      </div>
+
+      <div>
+        <RotasFilterInputComponent />
+        <RotasTableComponent :rotas="filteredRotas"/>
+        <RotaModalComponent :rota="rota"/>
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -18,7 +29,9 @@ import type {RotaDTO} from "./integration/rotas/business/dtos/rota.dto";
 import RotasTableComponent from "./components/rotas-table/rotas-table-component.vue";
 import RotaModalComponent from "./components/rota-modal/roda-modal-component.vue";
 import RotasFilterInputComponent from "./components/rotas-filter-input/rotas-filter-input-component.vue";
+import UsersListComponent from "./components/users-list/users-list-component.vue";
 import type {RotasOptionalFilterDTO} from "./integration/rotas/business/dtos/rotas-optional-filter.dto";
+
 
 
 const rotaStore = Store.useRotaStore();
@@ -36,7 +49,10 @@ onBeforeMount(async () => {
 
 //@ts-ignore
 Eventbus.on(EventTypeConstants.VIEW_USER_ROTAS_DETAILS, async (rotaDTO: RotaDTO) => {
-  await rotaStore.setSpecificRota(rotaDTO);
+  const awaitRota = rotaStore.getRotaById(rotaDTO.id);
+  const awaitRotaUser = userStore.getUserById(rotaDTO.userID);
+  await Promise.all([awaitRota, awaitRotaUser]);
+  await rotaStore.setRotaUser(user);
 });
 
 //@ts-ignore

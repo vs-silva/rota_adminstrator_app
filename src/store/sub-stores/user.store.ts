@@ -11,10 +11,11 @@ export function UserStore() {
        users.value = await Users.getAllUsers();
     }
 
-    function getUserById(userID: number): void {
+    async function getUserById(userID: number): Promise<void> {
         const result = users.value.find(user => user.id === userID);
 
         if(!result) {
+            user.value = <UserDTO>{};
             return;
         }
 
