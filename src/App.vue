@@ -4,7 +4,7 @@
 
     <div class="flex">
 
-      <div class="mr-6">
+      <div class="mr-10">
         <UsersListComponent :users="users"/>
       </div>
 
