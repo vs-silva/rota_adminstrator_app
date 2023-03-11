@@ -2,18 +2,10 @@
   <div class="user-list-component-container">
 
     <div>
-      <label for="userNameInputFilter">Filter User</label>
-    </div>
-
-    <div>
-      <input id="userNameInputFilter" type="text" class="border p-2 shadow" placeholder="filter users"/>
-    </div>
-
-    <div>
       <ul>
         <li v-for="user in users" :key="user.id" :id="user.id.toString()" class="border-b-2 cursor-pointer">
-          <div class="p-2">
-            <p>{{user.name}}</p>
+          <div class="p-4">
+            <p class="hover:underline underline-offset-2">{{user.name}}</p>
           </div>
         </li>
       </ul>

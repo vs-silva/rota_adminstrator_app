@@ -1,15 +1,18 @@
 <template>
-  <div class="container mx-auto m-10">
+  <div class="flex flex-row min-h-screen justify-center items-center pt-10">
     <LoaderComponent />
 
     <div class="flex">
 
       <div class="mr-10">
+        <UsersTextInputComponent />
+        <TitleComponent :sectionTitle="'Users'"/>
         <UsersListComponent :users="users"/>
       </div>
 
       <div>
         <RotasFilterInputComponent />
+        <TitleComponent :sectionTitle="'Rotas'"/>
         <RotasTableComponent :rotas="filteredRotas"/>
         <RotaModalComponent :rota="rota"/>
       </div>
@@ -31,8 +34,8 @@ import RotaModalComponent from "./components/rota-modal/roda-modal-component.vue
 import RotasFilterInputComponent from "./components/rotas-filter-input/rotas-filter-input-component.vue";
 import UsersListComponent from "./components/users-list/users-list-component.vue";
 import type {RotasOptionalFilterDTO} from "./integration/rotas/business/dtos/rotas-optional-filter.dto";
-
-
+import TitleComponent from "./components/title/title-component.vue";
+import UsersTextInputComponent from "./components/users-text-input/users-text-input-component.vue";
 
 const rotaStore = Store.useRotaStore();
 const userStore = Store.useUserStore();

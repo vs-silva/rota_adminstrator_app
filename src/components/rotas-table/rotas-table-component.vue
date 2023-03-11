@@ -1,6 +1,5 @@
 <template>
   <div class="rotas-table-component-container">
-    <h1 class="w-full text-sm text-center mb-2 uppercase font-bold">Rotas</h1>
     <table class="table-auto w-full text-sm text-center">
       <thead class="text-xs text-gray-700 uppercase">
       <tr class="border-b-4">
