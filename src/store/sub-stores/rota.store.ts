@@ -63,6 +63,12 @@ export function RotaStore() {
     }
 
     async function filterUserRotas(userName: string): Promise<void> {
+
+        if(!userName) {
+            filteredRotas.value = rotas.value;
+            return;
+        }
+
         filteredRotas.value = rotas.value.filter(rota => rota.user?.name.toLocaleLowerCase().includes(userName.toLocaleLowerCase()));
     }
 
