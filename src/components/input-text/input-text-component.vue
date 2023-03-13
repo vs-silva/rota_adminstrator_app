@@ -6,7 +6,7 @@
         type="text"
         v-model="inputValue"
         :placeholder="placeHolderText"
-        @change.stop.prevent="changeHandler"
+        @input.prevent.stop="changeHandler"
         class="shadow appearance-none border w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
     />
   </div>

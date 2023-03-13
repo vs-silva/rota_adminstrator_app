@@ -7,7 +7,7 @@
       <div class="mr-10">
         <UsersTextInputComponent />
         <TitleComponent :sectionTitle="'Users'"/>
-        <UsersListComponent :users="users"/>
+        <UsersListComponent :users="filteredUsers"/>
       </div>
 
       <div>
@@ -41,7 +41,7 @@ const rotaStore = Store.useRotaStore();
 const userStore = Store.useUserStore();
 
 const {rotas, filteredRotas, rota} = storeToRefs(rotaStore);
-const {users, user} = storeToRefs(userStore);
+const {users, filteredUsers, user} = storeToRefs(userStore);
 
 onBeforeMount(async () => {
   const awaitRotas = rotaStore.getAllRotas();
@@ -61,6 +61,11 @@ Eventbus.on(EventTypeConstants.VIEW_USER_ROTAS_DETAILS, async (rotaDTO: RotaDTO)
 //@ts-ignore
 Eventbus.on(EventTypeConstants.FILTER_ROTAS, async (rotasFilterDTO: RotasOptionalFilterDTO) => {
   await rotaStore.updateFilterRotas(rotasFilterDTO);
+});
+
+//@ts-ignore
+Eventbus.on(EventTypeConstants.FILTER_USER_ROTAS, async (username: string) => {
+  await rotaStore.filterUserRotas(username);
 });
 
 </script>

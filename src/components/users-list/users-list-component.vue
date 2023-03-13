@@ -3,9 +3,9 @@
 
     <div>
       <ul>
-        <li v-for="user in users" :key="user.id" :id="user.id.toString()" class="border-b-2 cursor-pointer">
+        <li v-for="user in users" :key="user.id" :id="user.id.toString()" class="border-b-2">
           <div class="p-4">
-            <p class="hover:underline underline-offset-2">{{user.name}}</p>
+            <p>{{user.name}}</p>
           </div>
         </li>
       </ul>
@@ -25,6 +25,7 @@ defineProps({
     default: () => <UserDTO[]>[]
   }
 });
+
 
 </script>
 

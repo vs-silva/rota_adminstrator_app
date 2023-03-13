@@ -2,10 +2,10 @@
   <div class="rotas-filter-input-container">
     <div class="flex">
       <div class="mr-4">
-        <InputDateComponent inputID="rotas-start-input" :inputLabel="'Start Date'" :changeHandler="handlerStartInputDateChange"/>
+        <InputDateComponent :inputID="'rotas-start-input'" :inputLabel="'Start Date'" :changeHandler="handlerStartInputDateChange"/>
       </div>
       <div class="mr-4">
-        <InputDateComponent inputID="rotas-end-input" :inputLabel="'End Date'" :changeHandler="handlerEndInputDateChange"/>
+        <InputDateComponent :inputID="'rotas-end-input'" :inputLabel="'End Date'" :changeHandler="handlerEndInputDateChange"/>
       </div>
       <div class="pt-6">
         <ResetButtonComponent :buttonLabel="'Reset Filters'"/>

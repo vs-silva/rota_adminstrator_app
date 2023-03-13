@@ -5,6 +5,7 @@ export const EventTypeConstants = Object.freeze({
     OPEN_MODAL: 'open_modal',
     CLOSE_MODAL: 'close_modal',
     FILTER_ROTAS: 'filter_rotas',
+    FILTER_USER_ROTAS: 'filter_user_rotas',
     RESET_DATE_INPUTS: 'reset-date-input',
     RESET_TEXT_INPUT: 'reset-text-input'
 } as const);

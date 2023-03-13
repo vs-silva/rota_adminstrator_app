@@ -62,12 +62,17 @@ export function RotaStore() {
         }
     }
 
+    async function filterUserRotas(userName: string): Promise<void> {
+        filteredRotas.value = rotas.value.filter(rota => rota.user?.name.toLocaleLowerCase().includes(userName.toLocaleLowerCase()));
+    }
+
     return {
         getAllRotas,
         getRotaById,
         setRotaUser,
         mapUsersToRotas,
         updateFilterRotas,
+        filterUserRotas,
         rotas,
         filteredRotas,
         rota
